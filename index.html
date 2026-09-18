@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Материалы курса — AI для FMCG</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    line-height: 1.5;
+    padding: 20px;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    padding: 48px 0 12px;
+  }
+  header h1 {
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 6px;
+  }
+  header h1 span { color: #0066cc; }
+  header .sub {
+    color: #6e6e73;
+    font-size: 1.05em;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  header .meta {
+    color: #9a9a9f;
+    font-size: 0.85em;
+    margin-top: 10px;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 28px 0 24px;
+  }
+  .filter-btn {
+    background: #e8e8ed;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #6e6e73;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { background: #d8d8de; }
+  .filter-btn.active {
+    background: #0066cc;
+    color: #fff;
+  }
+
+  .stats {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    text-align: center;
+    min-width: 100px;
+  }
+  .stat-item .num {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #0066cc;
+  }
+  .stat-item .label {
+    font-size: 0.8em;
+    color: #6e6e73;
+    margin-top: 2px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    overflow: hidden;
+    transition: opacity 0.2s;
+  }
+  .card.hidden { display: none; }
+
+  .card-inner {
+    display: flex;
+    align-items: stretch;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card-inner:hover .card-title a { text-decoration: underline; }
+
+  .card-num {
+    width: 52px;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .card-num.published { background: #0066cc; }
+  .card-num.coming { background: #c4c4ce; }
+
+  .card-body {
+    flex: 1;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-body .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+  .card-body .tag {
+    display: inline-block;
+    font-size: 0.68em;
+    font-weight: 500;
+    padding: 1px 8px;
+    border-radius: 4px;
+    background: #e8e8ed;
+    color: #6e6e73;
+  }
+  .card-body .tag.en { background: #e8f0fe; color: #0066cc; }
+  .card-body .tag.ru { background: #e8f5e9; color: #2e7d32; }
+  .card-body .tag.theme { background: #fff3e0; color: #e65100; }
+
+  .card-body h3 {
+    font-size: 1em;
+    font-weight: 600;
+    margin: 2px 0 3px;
+    line-height: 1.4;
+  }
+  .card-body h3 a {
+    color: #1d1d1f;
+    text-decoration: none;
+  }
+  .card-body p {
+    font-size: 0.88em;
+    color: #6e6e73;
+  }
+  .card-body .status-badge {
+    display: inline-block;
+    font-size: 0.72em;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-top: 4px;
+  }
+  .status-badge.ready { background: #e8f5e9; color: #2e7d32; }
+  .status-badge.coming { background: #f5f5f5; color: #9a9a9f; border: 1px dashed #c4c4ce; }
+
+  .card-arrow {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #c4c4ce;
+    font-size: 1.2em;
+  }
+  .card-inner:hover .card-arrow { color: #0066cc; }
+
+  footer {
+    text-align: center;
+    padding: 32px 0 20px;
+    color: #9a9a9f;
+    font-size: 0.82em;
+  }
+  footer a { color: #0066cc; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    header h1 { font-size: 1.5em; }
+    .card-num { width: 38px; font-size: 0.9em; }
+    .card-body { padding: 12px 14px; }
+    .card-arrow { width: 24px; }
+    .stats { gap: 10px; }
+    .stat-item { padding: 10px 14px; min-width: 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🧠 <span>AI для FMCG</span></h1>
+  <p class="sub">Дополнительные материалы к воркшопу Алексея Парфуна — подборки источников для самостоятельного изучения</p>
+  <p class="meta">Всего страниц: <strong>1</strong> · опубликовано: <strong>1</strong> · в работе: <strong>0</strong></p>
+</header>
+
+<div class="filters" id="filters">
+  <button class="filter-btn active" data-filter="all">Все</button>
+  <button class="filter-btn" data-filter="ready">Готово</button>
+  <button class="filter-btn" data-filter="coming">Скоро</button>
+  <button class="filter-btn" data-filter="ru">Только русские</button>
+  <button class="filter-btn" data-filter="en">Только английские</button>
+</div>
+
+<div class="stats">
+  <div class="stat-item">
+    <div class="num">1</div>
+    <div class="label">Страниц</div>
+  </div>
+  <div class="stat-item">
+    <div class="num">10</div>
+    <div class="label">Источников</div>
+  </div>
+  <div class="stat-item">
+    <div class="num">7</div>
+    <div class="label">на русском</div>
+  </div>
+  <div class="stat-item">
+    <div class="num">3</div>
+    <div class="label">на английском</div>
+  </div>
+</div>
+
+<!-- === Карточки === -->
+
+<!-- 1 — готовая страница -->
+<div class="card" data-filter="ready ru">
+  <a class="card-inner" href="https://mrvolkomorov.github.io/ai-fmcg-materials/" target="_blank" rel="noopener">
+    <div class="card-num published">1</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag ru">RU</span>
+        <span class="tag theme">Промпты</span>
+        <span class="tag theme">Фреймворки</span>
+      </div>
+      <h3>10 материалов для самостоятельного изучения</h3>
+      <p>Обзор моделей, фреймворки промптов, продвинутый промптинг</p>
+      <span class="status-badge ready">✅ Опубликовано</span>
+    </div>
+    <div class="card-arrow">→</div>
+  </a>
+</div>
+
+<!-- 2 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">2</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">Безопасность</span>
+      </div>
+      <h3>Безопасность: принцип светофора, два контура, 152-ФЗ</h3>
+      <p>Материалы по безопасной работе с ИИ в коммерческом отделе</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 3 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">3</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">ИИ-агенты</span>
+        <span class="tag theme">Автоматизация</span>
+      </div>
+      <h3>ИИ-агенты и автоматизация рабочих процессов</h3>
+      <p>No-code инструменты, готовые шаблоны и кейсы для FMCG</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 4 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">4</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">Аналитика</span>
+        <span class="tag theme">Данные</span>
+      </div>
+      <h3>ИИ для анализа данных и бизнес-аналитики</h3>
+      <p>Excel + AI, визуализация, интерпретация цифр</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 5 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">5</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">Визуал</span>
+        <span class="tag theme">Креатив</span>
+      </div>
+      <h3>Генерация визуального контента</h3>
+      <p>ИИ-инструменты для картинок, презентаций и видео</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 6 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">6</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">Продажи</span>
+        <span class="tag theme">FMCG</span>
+      </div>
+      <h3>ИИ в продажах и переговорах с сетями</h3>
+      <p>Скрипты, анализ возражений, подготовка КП</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 7 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">7</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">Категорийный менеджмент</span>
+      </div>
+      <h3>ИИ для категорийного менеджмента</h3>
+      <p>ABC-XYZ-анализ, планограммы, ассортимент</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 8 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">8</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">Контент</span>
+        <span class="tag theme">SMM</span>
+      </div>
+      <h3>ИИ для контента и соцсетей</h3>
+      <p>Посты, сторителлинг, генерация идей для продвижения</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 9 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">9</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">Внедрение</span>
+        <span class="tag theme">Команда</span>
+      </div>
+      <h3>Внедрение ИИ в коммерческий отдел</h3>
+      <p>AI-политики, обучение команды, библиотека промптов</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<!-- 10 — заглушка -->
+<div class="card" data-filter="coming">
+  <a class="card-inner" style="cursor: default;">
+    <div class="card-num coming">10</div>
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag theme">FMCG</span>
+        <span class="tag theme">Кейсы</span>
+      </div>
+      <h3>Кейсы внедрения ИИ в FMCG-компаниях</h3>
+      <p>Реальные примеры из практики: цепочки поставок, ценообразование, промо</p>
+      <span class="status-badge coming">🔜 Скоро</span>
+    </div>
+    <div class="card-arrow" style="color: #e0e0e0;">→</div>
+  </a>
+</div>
+
+<footer>
+  <p>Материалы к воркшопу Алексея Парфуна «AI для FMCG 2026»</p>
+  <p style="margin-top:4px;"><a href="https://github.com/mrvolkomorov/ai-fmcg-portal">Репозиторий на GitHub</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      btns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.dataset.filter;
+      cards.forEach(card => {
+        const tags = card.dataset.filter || '';
+        if (filter === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          const match = tags.split(' ').includes(filter);
+          card.classList.toggle('hidden', !match);
+        }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
