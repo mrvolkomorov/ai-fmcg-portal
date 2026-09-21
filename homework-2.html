@@ -1,66 +1,5 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ДЗ Занятие 2 — Встречи, письма и протоколы</title><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.6;padding:20px}.container{max-width:720px;margin:0 auto}.header{text-align:center;padding:28px 0 10px}.header h1{font-size:1.5em;font-weight:700;margin-bottom:2px}.header .sub{color:#6e6e73;font-size:.88em;margin-bottom:4px}.header .meta{color:#9a9a9f;font-size:.8em;margin-top:4px}.btn-back{display:inline-block;margin:2px 0 14px;padding:5px 16px;border-radius:6px;background:#e8e8ed;color:#6e6e73;text-decoration:none;font-size:.8em;font-weight:500;transition:background .15s}.btn-back:hover{background:#d1d1d6}h2{font-size:1.1em;font-weight:700;margin-bottom:10px;color:#1d1d1f;border-bottom:2px solid #0066cc;padding-bottom:4px;display:inline-block}p,li{font-size:.9em;color:#2c2c2e}p{margin-bottom:10px}ul,ol{padding-left:20px;margin-bottom:12px}li{margin-bottom:4px}.card{background:#fff;border:1px solid #e8e8ed;border-radius:12px;padding:14px 18px;margin-bottom:14px}.card-green{background:#e8f5e9;border-left:4px solid #2e7d32}.card-blue{background:#e3f2fd;border-left:4px solid #1565c0}.card-amber{background:#fff8e1;border-left:4px solid #f57f17}table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:.85em}th,td{text-align:left;padding:7px 9px;border:1px solid #ddd;vertical-align:top}th{background:#f0f0f2;font-weight:600;color:#1d1d1f}td{background:#fff}.prompt-box{background:#f8f8fa;border:1px solid #ddd;border-radius:8px;padding:12px 16px;margin:12px 0 14px;font-family:'SF Mono','Fira Code','Consolas',monospace;font-size:.78em;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#2c2c2e}.prompt-label{font-weight:600;font-size:.7em;text-transform:uppercase;letter-spacing:.04em;color:#0066cc;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.step{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}.step-num{flex-shrink:0;width:26px;height:26px;background:#0066cc;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8em;margin-top:2px}.step-body{flex:1}.step-body strong{display:block;margin-bottom:1px}hr{border:none;border-top:1px solid #e8e8ed;margin:22px 0}.footer{text-align:center;padding:20px 0 10px;color:#9a9a9f;font-size:.78em}.footer a{color:#0066cc;text-decoration:none}@media(max-width:600px){body{padding:12px}.header h1{font-size:1.3em}.step{flex-direction:column;gap:4px}.step-num{width:22px;height:22px;font-size:.7em}.card{padding:12px 14px}}</style></head><body><div class="container">
+<!DOCTYPE html><html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;max-width:800px;margin:0 auto;padding:2rem;color:#333}h1{font-size:1.8rem;margin-bottom:.5rem}.subtitle{color:#666;margin-bottom:2rem;font-size:1.1rem}h2{font-size:1.3rem;margin-top:2rem;margin-bottom:1rem;border-bottom:2px solid #e5e7eb;padding-bottom:.5rem}.card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:1.5rem;margin-bottom:1.5rem}.card b{display:block;margin-bottom:.5rem;color:#111827}ol,ul{margin-left:1.5rem;margin-bottom:1rem}li{margin-bottom:.5rem}.prompt-block{background:#1f2937;color:#e5e7eb;padding:1.25rem;border-radius:8px;font-family:SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;font-size:.95rem;white-space:pre-wrap;overflow-x:auto}.prompt-block b{color:#93c5fd;display:inline}table{width:100%;border-collapse:collapse;margin:1rem 0}th,td{border:1px solid #d1d5db;padding:.75rem;text-align:left}th{background:#f3f4f6;font-weight:600}.action-box{background:#ecfdf5;border:1px solid #10b981;border-radius:8px;padding:1.25rem;margin-top:2rem}.action-box h3{margin-bottom:.5rem;color:#065f46}.warning{background:#fff7ed;border:1px solid #f97316;border-radius:8px;padding:1rem;margin:1rem 0}.warning b{color:#c2410c}a{color:#2563eb;text-decoration:none}a:hover{text-decoration:underline}</style><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ДЗ — Транскрибация и митинг-репорт</title></head><body><h1>🎯 Домашнее задание: транскрибация + митинг-репорт</h1><p class="subtitle">Задача — настроить один инструмент для расшифровки встреч и научиться собирать понятный митинг-репорт через любую ЛЛМ.</p><div class="card"><b>Что нужно сделать</b><ol><li><b>Поставьте любой транскрибатор</b> — на компьютере, в браузере или в облаке.</li><li><b>Запишите и расшифруйте одну реальную рабочую встречу</b> (не учебную).</li><li><b>Сделайте митинг-репорт</b> через ЛЛМ по промпту ниже — 6 полей, с тайм-кодами и разделением «решено / спорное / следующий шаг».</li><li><b>Отправьте результат</b> хотя бы одному адресату (команда, руководитель или внешняя сторона).</li></ol></div><h2>📋 Минимум для сдачи</h2><table><thead><tr><th>Файл / действие</th><th>Что проверить</th></tr></thead><tbody><tr><td>Протокол (ссылка)</td><td>Есть 6 полей, цифры с тайм-кодами, «ПРОВЕРИТЬ» на месте спорного.</td></tr><tr><td>Скриншот отправки</td><td>Follow-up ушёл от вашего имени реальному адресату.</td></tr></tbody></table><h2>📝 Промпт-протоколист</h2><p>Скопируйте в проект. Берёт расшифровку с тайм-кодами, отдаёт протокол по шести полям.</p><div class="prompt-block">Ты — ассистент коммерческого директора. Ниже расшифровка встречи с тайм-кодами и словарь терминов нашей категории.
 
-<div class="header">
-  <h1>📝 Домашнее задание</h1>
-  <p class="sub">Встречи, письма и протоколы • Занятие 2</p>
-  <p class="meta">Алексей Парфун</p>
-  <a class="btn-back" href="./">← На главную</a>
-</div>
-
-<div class="card card-green">
-  <strong>🎯 Что нужно сделать</strong>
-  <p style="margin-top:6px;margin-bottom:0;">Поставить инструмент, который записывает и транскрибирует встречу. Провести реальную рабочую встречу. Сделать хороший meeting-report через любую LLM. Три встречи — три отчёта.</p>
-</div>
-
-<h2>📋 Пошагово</h2>
-
-<div class="step">
-  <div class="step-num">1</div>
-  <div class="step-body">
-    <strong>Поставьте транскрибатор</strong>
-    <p style="margin-bottom:0;font-size:.88em;">Любой инструмент, который пишет встречу и превращает звук в текст. Внутренние планёрки — конспект Яндекс 360 или бот-ассистент. Переговоры с сетью — Whisper (MacWhisper / Buzz). Красная зона — только локально.</p>
-  </div>
-</div>
-
-<div class="step">
-  <div class="step-num">2</div>
-  <div class="step-body">
-    <strong>Проведите встречу с записью</strong>
-    <p style="margin-bottom:0;font-size:.88em;">Включите запись до начала. Получите расшифровку.</p>
-  </div>
-</div>
-
-<div class="step">
-  <div class="step-num">3</div>
-  <div class="step-body">
-    <strong>Сделайте meeting-report через LLM</strong>
-    <p style="margin-bottom:0;font-size:.88em;">Вставьте расшифровку в промпт-протоколист (ниже), получите протокол по шести полям. Соберите из него письмо — команде, руководителю или внешней стороне — через промпт follow-up.</p>
-  </div>
-</div>
-
-<div class="card card-blue" style="margin-top:4px;">
-  <strong>📬 Что сдать:</strong>
-  <ul style="margin-top:4px;margin-bottom:0;">
-    <li>Три meeting-репорта (ссылками на документы)</li>
-    <li>Один отправленный follow-up (скриншот)</li>
-  </ul>
-</div>
-
-<h2>✅ Критерии зачёта</h2>
-<table>
-  <tr><th style="width:5%">#</th><th>Проверка</th></tr>
-  <tr><td>1</td><td>Инструмент записи/транскрибации установлен — вы подтвердили, что он работает</td></tr>
-  <tr><td>2</td><td>Цифры и даты в протоколе — с тайм-кодами</td></tr>
-  <tr><td>3</td><td>Спорное и двусмысленное вынесено в «ПРОВЕРИТЬ», а не в решения</td></tr>
-  <tr><td>4</td><td>Во внешнем письме нет внутренних оценок</td></tr>
-  <tr><td>5</td><td>Следующий шаг назван и датирован — или честно написано «не зафиксирован»</td></tr>
-</table>
-
-<h2>📝 Промпт-протоколист</h2>
-<p style="font-size:.88em;">Сохраните в свой Project. Берёт расшифровку, отдаёт протокол по шести полям.</p>
-<div class="prompt-box">
-<div class="prompt-label">Промпт-протоколист</div>Ты — ассистент коммерческого директора. Ниже расшифровка встречи
-с тайм-кодами и словарь терминов нашей категории.
 СЛОВАРЬ: [аббревиатуры, названия SKU, фамилии]
 РАСШИФРОВКА: [ВСТАВИТЬ ТЕКСТ]
 
@@ -73,16 +12,11 @@
 6. Следующий шаг с датой.
 
 Жёсткие правила:
-— Не добавляй ничего, чего нет в расшифровке.
-— К каждому решению и цифре ставь тайм-код.
-— Всё неуверенное — в «ПРОВЕРИТЬ».
-— Если следующего шага нет — напиши «не зафиксирован».
-</div>
+1. Не добавляй ничего, чего нет в расшифровке.
+2. К каждому решению и цифре ставь тайм-код.
+3. Всё неуверенное — в «ПРОВЕРИТЬ».
+4. Если нет следующего шага — напиши «не зафиксирован».</div><h2>📧 Промпт для follow-up письма</h2><p>На основе готового протокола собираем письмо под нужного адресата.</p><div class="prompt-block">Ниже — протокол встречи. Собери письмо внешней стороне.
 
-<h2>📝 Промпт для follow-up</h2>
-<p style="font-size:.88em;">Из одного протокола — три письма под разных адресатов.</p>
-<div class="prompt-box">
-<div class="prompt-label">Промпт для внешнего follow-up</div>Ниже — протокол встречи. Собери письмо внешней стороне.
 ПРОТОКОЛ: [ВСТАВИТЬ ТЕКСТ]
 
 Правила:
@@ -90,31 +24,4 @@
 2. Каждая цифра — с отсылкой на протокол.
 3. В конце: «Если что-то неточно, поправьте до [ДАТА].»
 4. Не длиннее трети протокола.
-5. Тон деловой, ровный. Без канцелярита.
-</div>
-
-<h2>⚠️ Где чаще всего ошибаются</h2>
-
-<div class="card card-amber">
-  <strong>🔊 Качество расшифровки решается до расшифровки.</strong>
-  <p style="margin-top:4px;margin-bottom:0;font-size:.85em;">Гарнитура даёт больше прироста, чем смена сервиса. Один участник — один микрофон. Не говорить одновременно.</p>
-</div>
-
-<div class="card" style="border-left:4px solid #c62828;">
-  <strong>🚨 Разногласия — только для внутреннего протокола.</strong>
-  <p style="margin-top:4px;margin-bottom:0;font-size:.85em;">Одна строка из поля «разногласия» в письме закупщику способна испортить отношения, которые строились годами. Модель не различает, что можно показывать наружу. Внешнее письмо — читать глазами целиком.</p>
-</div>
-
-<div class="card card-amber">
-  <strong>⚙️ Автоматизировать можно запись и расшифровку. Проверку цифр — никогда.</strong>
-  <p style="margin-top:4px;margin-bottom:0;font-size:.85em;">Последние две минуты перед отправкой — ваши. Именно в них решается, что уйдёт от вашего имени наружу.</p>
-</div>
-
-<hr>
-
-<div class="footer">
-  <p>Алексей Парфун · Практический ИИ для коммерческих директоров</p>
-  <p style="margin-top:4px;"><a href="./">← На главную страницу курса</a></p>
-</div>
-
-</div></body></html>
+5. Тон деловой, ровный. Без канцелярита.</div><h2>⭐ Как улучшить качество расшифровки</h2><ul><li><b>Гарнитура или внешний микрофон</b> дают больше прироста, чем смена сервиса.</li><li><b>Один участник — один микрофон.</b> Не говорите одновременно.</li><li><b>Всюду свои</b> — имена, суммы, даты. Модель не различает внутренние оценки, поэтому внешнее письмо читайте глазами целиком.</li></ul><div class="action-box"><h3>✅ Это week</h3><p>Сдать в чат до следующей практики: ссылку на протокол + скриншот отправленного follow-up.</p></div><p style="margin-top:2rem;"><a href="./">← Назад к списку заданий</a></p></body></html>
