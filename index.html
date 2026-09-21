@@ -21,6 +21,7 @@ header .meta { color: rgb(154, 154, 159); font-size: 0.85em; margin-top: 10px; }
 .card-title-area .tag.ru { background: rgb(232, 245, 233); color: rgb(46, 125, 50); }
 .card-title-area .tag.theme { background: rgb(255, 243, 224); color: rgb(230, 81, 0); }
 .card-title-area .tag.lesson { background: rgb(243, 229, 245); color: rgb(123, 31, 162); }
+.card-title-area .tag.homework { background: rgb(232, 240, 254); color: rgb(0, 102, 204); }
 .card-title-area h3 { font-size: 1em; font-weight: 600; margin: 2px 0px 3px; line-height: 1.4; color: rgb(29, 29, 31); }
 .card-title-area p { font-size: 0.88em; color: rgb(110, 110, 115); }
 .card-links { padding: 0px 20px 14px; display: flex; flex-direction: column; gap: 6px; }
@@ -31,6 +32,8 @@ header .meta { color: rgb(154, 154, 159); font-size: 0.85em; margin-top: 10px; }
 .link-item.video-link:hover { background: rgb(248, 187, 208); }
 .link-item.reading-link { background: rgb(232, 245, 233); color: rgb(46, 125, 50); }
 .link-item.reading-link:hover { background: rgb(200, 230, 201); }
+.link-item.homework-link { background: rgb(232, 240, 254); color: rgb(21, 101, 192); }
+.link-item.homework-link:hover { background: rgb(187, 222, 251); }
 .link-item .link-icon { font-size: 1.1em; flex-shrink: 0; }
 .link-item .link-label { flex-shrink: 0; font-size: 0.75em; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.05em; }
 .link-item .link-title { flex: 1 1 0%; }
@@ -124,9 +127,10 @@ footer a { color: rgb(0, 102, 204); text-decoration: none; }
       <div class="tag-row">
         <span class="tag ru">RU</span>
         <span class="tag lesson">Занятие 2</span>
+        <span class="tag homework">ДЗ</span>
       </div>
       <h3>Все материалы занятия 2</h3>
-      <p>Конспект и видеозапись второго воркшопа</p>
+      <p>Конспект, видео, домашнее задание и подборка для самостоятельного изучения</p>
     </div>
     <div class="card-arrow" style="visibility: hidden;">→</div>
   </div>
@@ -141,6 +145,12 @@ footer a { color: rgb(0, 102, 204); text-decoration: none; }
       <span class="link-icon">🎬</span>
       <span class="link-label">Видео</span>
       <span class="link-title">Полная видеозапись второго воркшопа</span>
+      <span class="link-arrow">→</span>
+    </a>
+    <a class="link-item homework-link" href="https://mrvolkomorov.github.io/ai-fmcg-portal/homework-2.html" target="_blank" rel="noopener">
+      <span class="link-icon">📝</span>
+      <span class="link-label">Домашнее задание</span>
+      <span class="link-title">Пошаговая инструкция, промпты, чек-листы и критерии зачёта</span>
       <span class="link-arrow">→</span>
     </a>
     <a class="link-item reading-link" href="https://mrvolkomorov.github.io/ai-fmcg-portal/materials-2.html" target="_blank" rel="noopener">
