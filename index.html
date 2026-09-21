@@ -1,238 +1,118 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
+<!DOCTYPE html><html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style rel="stylesheet" type="text/css">@charset "utf-8";
+
+*, ::before, ::after { box-sizing: border-box; margin: 0px; padding: 0px; }
+
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif; background: rgb(245, 245, 247); color: rgb(29, 29, 31); line-height: 1.5; padding: 20px; }
+
+.container { max-width: 960px; margin: 0px auto; }
+
+header { text-align: center; padding: 48px 0px 12px; }
+
+header h1 { font-size: 2em; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 6px; }
+
+header h1 span { color: rgb(0, 102, 204); }
+
+header .sub { color: rgb(110, 110, 115); font-size: 1.05em; max-width: 580px; margin: 0px auto; }
+
+header .meta { color: rgb(154, 154, 159); font-size: 0.85em; margin-top: 10px; }
+
+.stats { display: flex; gap: 24px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
+
+.stat-item { background: rgb(255, 255, 255); border-radius: 12px; padding: 14px 22px; box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px; text-align: center; min-width: 100px; }
+
+.stat-item .num { font-size: 1.5em; font-weight: 700; color: rgb(0, 102, 204); }
+
+.stat-item .label { font-size: 0.8em; color: rgb(110, 110, 115); margin-top: 2px; }
+
+.card { background: rgb(255, 255, 255); border-radius: 14px; margin-bottom: 12px; box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 3px; overflow: hidden; }
+
+.card-header { display: flex; align-items: stretch; }
+
+.card-num { width: 52px; display: flex; align-items: center; justify-content: center; font-size: 1.1em; font-weight: 700; color: rgb(255, 255, 255); flex-shrink: 0; background: rgb(0, 102, 204); }
+
+.card-title-area { flex: 1 1 0%; padding: 16px 20px 12px; display: flex; flex-direction: column; justify-content: center; }
+
+.card-title-area .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 4px; }
+
+.card-title-area .tag { display: inline-block; font-size: 0.68em; font-weight: 500; padding: 1px 8px; border-radius: 4px; background: rgb(232, 232, 237); color: rgb(110, 110, 115); }
+
+.card-title-area .tag.en { background: rgb(232, 240, 254); color: rgb(0, 102, 204); }
+
+.card-title-area .tag.ru { background: rgb(232, 245, 233); color: rgb(46, 125, 50); }
+
+.card-title-area .tag.theme { background: rgb(255, 243, 224); color: rgb(230, 81, 0); }
+
+.card-title-area .tag.lesson { background: rgb(243, 229, 245); color: rgb(123, 31, 162); }
+
+.card-title-area .tag.homework { background: rgb(232, 240, 254); color: rgb(0, 102, 204); }
+
+.card-title-area h3 { font-size: 1em; font-weight: 600; margin: 2px 0px 3px; line-height: 1.4; color: rgb(29, 29, 31); }
+
+.card-title-area p { font-size: 0.88em; color: rgb(110, 110, 115); }
+
+.card-links { padding: 0px 20px 14px; display: flex; flex-direction: column; gap: 6px; }
+
+.card-links .link-item { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; text-decoration: none; font-size: 0.85em; font-weight: 500; transition: background 0.15s; }
+
+.link-item.notes-link { background: rgb(227, 242, 253); color: rgb(21, 101, 192); }
+
+.link-item.notes-link:hover { background: rgb(187, 222, 251); }
+
+.link-item.video-link { background: rgb(252, 228, 236); color: rgb(198, 40, 40); }
+
+.link-item.video-link:hover { background: rgb(248, 187, 208); }
+
+.link-item.reading-link { background: rgb(232, 245, 233); color: rgb(46, 125, 50); }
+
+.link-item.reading-link:hover { background: rgb(200, 230, 201); }
+
+.link-item.homework-link { background: rgb(232, 240, 254); color: rgb(21, 101, 192); }
+
+.link-item.homework-link:hover { background: rgb(187, 222, 251); }
+
+.link-item .link-icon { font-size: 1.1em; flex-shrink: 0; }
+
+.link-item .link-label { flex-shrink: 0; font-size: 0.75em; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.link-item .link-title { flex: 1 1 0%; }
+
+.link-item .link-arrow { flex-shrink: 0; font-size: 0.9em; opacity: 0.4; }
+
+.link-item:hover .link-arrow { opacity: 1; }
+
+.card-arrow { width: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: rgb(196, 196, 206); font-size: 1.2em; }
+
+footer { text-align: center; padding: 32px 0px 20px; color: rgb(154, 154, 159); font-size: 0.82em; }
+
+footer a { color: rgb(0, 102, 204); text-decoration: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px; }
+  header h1 { font-size: 1.5em; }
+  .card-num { width: 38px; font-size: 0.9em; }
+  .card-title-area { padding: 12px 14px 8px; }
+  .card-links { padding: 0px 14px 10px; }
+  .stats { gap: 10px; }
+  .stat-item { padding: 10px 14px; min-width: 80px; }
+}</style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Материалы курса — AI для FMCG</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif;
-    background: #f5f5f7;
-    color: #1d1d1f;
-    line-height: 1.5;
-    padding: 20px;
-  }
-  .container { max-width: 960px; margin: 0 auto; }
 
-  header {
-    text-align: center;
-    padding: 48px 0 12px;
-  }
-  header h1 {
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    margin-bottom: 6px;
-  }
-  header h1 span { color: #0066cc; }
-  header .sub {
-    color: #6e6e73;
-    font-size: 1.05em;
-    max-width: 580px;
-    margin: 0 auto;
-  }
-  header .meta {
-    color: #9a9a9f;
-    font-size: 0.85em;
-    margin-top: 10px;
-  }
-
-  .stats {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-  }
-  .stat-item {
-    background: #fff;
-    border-radius: 12px;
-    padding: 14px 22px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    text-align: center;
-    min-width: 100px;
-  }
-  .stat-item .num {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #0066cc;
-  }
-  .stat-item .label {
-    font-size: 0.8em;
-    color: #6e6e73;
-    margin-top: 2px;
-  }
-
-  .card {
-    background: #fff;
-    border-radius: 14px;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
-    overflow: hidden;
-  }
-
-  .card-header {
-    display: flex;
-    align-items: stretch;
-  }
-  .card-num {
-    width: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1em;
-    font-weight: 700;
-    color: #fff;
-    flex-shrink: 0;
-    background: #0066cc;
-  }
-  .card-title-area {
-    flex: 1;
-    padding: 16px 20px 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .card-title-area .tag-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 4px;
-  }
-  .card-title-area .tag {
-    display: inline-block;
-    font-size: 0.68em;
-    font-weight: 500;
-    padding: 1px 8px;
-    border-radius: 4px;
-    background: #e8e8ed;
-    color: #6e6e73;
-  }
-  .card-title-area .tag.en { background: #e8f0fe; color: #0066cc; }
-  .card-title-area .tag.ru { background: #e8f5e9; color: #2e7d32; }
-  .card-title-area .tag.theme { background: #fff3e0; color: #e65100; }
-  .card-title-area .tag.lesson { background: #f3e5f5; color: #7b1fa2; }
-
-  .card-title-area h3 {
-    font-size: 1em;
-    font-weight: 600;
-    margin: 2px 0 3px;
-    line-height: 1.4;
-    color: #1d1d1f;
-  }
-  .card-title-area p {
-    font-size: 0.88em;
-    color: #6e6e73;
-  }
-
-  .card-links {
-    padding: 0 20px 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .card-links .link-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.85em;
-    font-weight: 500;
-    transition: background 0.15s;
-  }
-  .link-item.notes-link {
-    background: #e3f2fd;
-    color: #1565c0;
-  }
-  .link-item.notes-link:hover {
-    background: #bbdefb;
-  }
-  .link-item.video-link {
-    background: #fce4ec;
-    color: #c62828;
-  }
-  .link-item.video-link:hover {
-    background: #f8bbd0;
-  }
-  .link-item.reading-link {
-    background: #e8f5e9;
-    color: #2e7d32;
-  }
-  .link-item.reading-link:hover {
-    background: #c8e6c9;
-  }
-  .link-item .link-icon {
-    font-size: 1.1em;
-    flex-shrink: 0;
-  }
-  .link-item .link-label {
-    flex-shrink: 0;
-    font-size: 0.75em;
-    opacity: 0.7;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .link-item .link-title {
-    flex: 1;
-  }
-  .link-item .link-arrow {
-    flex-shrink: 0;
-    font-size: 0.9em;
-    opacity: 0.4;
-  }
-  .link-item:hover .link-arrow {
-    opacity: 1;
-  }
-
-  .card-arrow {
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #c4c4ce;
-    font-size: 1.2em;
-  }
-
-  footer {
-    text-align: center;
-    padding: 32px 0 20px;
-    color: #9a9a9f;
-    font-size: 0.82em;
-  }
-  footer a { color: #0066cc; text-decoration: none; }
-
-  @media (max-width: 600px) {
-    body { padding: 12px; }
-    header h1 { font-size: 1.5em; }
-    .card-num { width: 38px; font-size: 0.9em; }
-    .card-title-area { padding: 12px 14px 8px; }
-    .card-links { padding: 0 14px 10px; }
-    .stats { gap: 10px; }
-    .stat-item { padding: 10px 14px; min-width: 80px; }
-  }
-</style>
 </head>
 <body>
 <div class="container">
 
 <header>
-  <h1>🧠 <span>AI для FMCG</span></h1>
+  <h1>&#x1F9E0; <span>AI для FMCG</span></h1>
   <p class="sub">Материалы к воркшопу Алексея Парфуна — конспекты, видео, подборки для самостоятельного изучения</p>
-  <p class="meta">Занятий: <strong>1</strong></p>
+  <p class="meta">Занятий: <strong>2</strong></p>
 </header>
 
 <div class="stats">
   <div class="stat-item">
-    <div class="num">1</div>
-    <div class="label">Занятие</div>
-  </div>
-  <div class="stat-item">
-    <div class="num">10</div>
-    <div class="label">Источников</div>
+    <div class="num">2</div>
+    <div class="label">Занятия</div>
   </div>
   <div class="stat-item">
     <div class="num">7</div>
@@ -244,6 +124,7 @@
   </div>
 </div>
 
+<!-- 1 -->
 <div class="card">
   <div class="card-header">
     <div class="card-num" style="background: #7b1fa2;">1</div>
@@ -257,35 +138,61 @@
       <h3>Все материалы занятия 1</h3>
       <p>Конспект, видеозапись и подборка для самостоятельного изучения</p>
     </div>
-    <div class="card-arrow" style="visibility: hidden;">→</div>
+    <div class="card-arrow" style="visibility: hidden;">&#x2192;</div>
   </div>
   <div class="card-links">
     <a class="link-item notes-link" href="https://docs.google.com/document/d/1Mzff_OG92s7NHs9M8WtqpW-MN-g21n0nGnjM_MS-ieA/edit?usp=drivesdk" target="_blank" rel="noopener">
-      <span class="link-icon">📄</span>
+      <span class="link-icon">&#x1F4C4;</span>
       <span class="link-label">Конспект</span>
       <span class="link-title">Подробный конспект — ключевые темы, инсайты, примеры</span>
-      <span class="link-arrow">→</span>
+      <span class="link-arrow">&#x2192;</span>
     </a>
     <a class="link-item video-link" href="https://disk.yandex.ru/i/gtzmutUrISDS5Q" target="_blank" rel="noopener">
-      <span class="link-icon">🎬</span>
+      <span class="link-icon">&#x1F3AC;</span>
       <span class="link-label">Видео</span>
       <span class="link-title">Полная видеозапись — 87 мин, теория + практика + Q&amp;A</span>
-      <span class="link-arrow">→</span>
+      <span class="link-arrow">&#x2192;</span>
     </a>
     <a class="link-item reading-link" href="https://mrvolkomorov.github.io/ai-fmcg-materials/" target="_blank" rel="noopener">
-      <span class="link-icon">📚</span>
+      <span class="link-icon">&#x1F4DA;</span>
       <span class="link-label">Почитать</span>
       <span class="link-title">10 материалов для самостоятельного изучения — обзор моделей, промпты, фреймворки</span>
-      <span class="link-arrow">→</span>
+      <span class="link-arrow">&#x2192;</span>
+    </a>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-num" style="background: #0066cc;">2</div>
+    <div class="card-title-area">
+      <div class="tag-row">
+        <span class="tag ru">RU</span>
+        <span class="tag lesson">Занятие 2</span>
+        <span class="tag theme">Встречи</span>
+        <span class="tag theme">Протоколы</span>
+      </div>
+      <h3>Домашнее задание — Встречи, письма и протоколы</h3>
+      <p>Три встречи через всю цепочку: запись, расшифровка, протокол и follow-up</p>
+    </div>
+    <div class="card-arrow" style="visibility: hidden;">&#x2192;</div>
+  </div>
+  <div class="card-links">
+    <a class="link-item homework-link" href="homework-2.html" target="_blank" rel="noopener">
+      <span class="link-icon">&#x1F4DD;</span>
+      <span class="link-label">Домашнее задание</span>
+      <span class="link-title">Пошаговая инструкция, промпты, чек-листы и критерии зачёта</span>
+      <span class="link-arrow">&#x2192;</span>
     </a>
   </div>
 </div>
 
 <footer>
-  <p>Материалы к воркшопу Алексея Парфуна «AI для FMCG 2026»</p>
+  <p>Материалы к воркшопу Алексея Парфуна &laquo;AI для FMCG 2026&raquo;</p>
   <p style="margin-top:4px;"><a href="https://github.com/mrvolkomorov/ai-fmcg-portal">Репозиторий на GitHub</a></p>
 </footer>
 
 </div>
-</body>
-</html>
+
+</body></html>
