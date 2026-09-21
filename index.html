@@ -71,14 +71,11 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.07);
     overflow: hidden;
   }
-  .card-inner {
+
+  .card-header {
     display: flex;
     align-items: stretch;
-    text-decoration: none;
-    color: inherit;
   }
-  .card-inner:hover .card-title a { text-decoration: underline; }
-
   .card-num {
     width: 52px;
     display: flex;
@@ -90,21 +87,20 @@
     flex-shrink: 0;
     background: #0066cc;
   }
-
-  .card-body {
+  .card-title-area {
     flex: 1;
-    padding: 16px 20px;
+    padding: 16px 20px 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .card-body .tag-row {
+  .card-title-area .tag-row {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-bottom: 4px;
   }
-  .card-body .tag {
+  .card-title-area .tag {
     display: inline-block;
     font-size: 0.68em;
     font-weight: 500;
@@ -113,25 +109,75 @@
     background: #e8e8ed;
     color: #6e6e73;
   }
-  .card-body .tag.en { background: #e8f0fe; color: #0066cc; }
-  .card-body .tag.ru { background: #e8f5e9; color: #2e7d32; }
-  .card-body .tag.theme { background: #fff3e0; color: #e65100; }
-  .card-body .tag.video { background: #fce4ec; color: #c62828; }
-  .card-body .tag.notes { background: #e3f2fd; color: #1565c0; }
+  .card-title-area .tag.en { background: #e8f0fe; color: #0066cc; }
+  .card-title-area .tag.ru { background: #e8f5e9; color: #2e7d32; }
+  .card-title-area .tag.theme { background: #fff3e0; color: #e65100; }
+  .card-title-area .tag.lesson { background: #f3e5f5; color: #7b1fa2; }
 
-  .card-body h3 {
+  .card-title-area h3 {
     font-size: 1em;
     font-weight: 600;
     margin: 2px 0 3px;
     line-height: 1.4;
-  }
-  .card-body h3 a {
     color: #1d1d1f;
-    text-decoration: none;
   }
-  .card-body p {
+  .card-title-area p {
     font-size: 0.88em;
     color: #6e6e73;
+  }
+
+  .card-links {
+    padding: 0 20px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card-links .link-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: background 0.15s;
+  }
+  .link-item.notes-link {
+    background: #e3f2fd;
+    color: #1565c0;
+  }
+  .link-item.notes-link:hover {
+    background: #bbdefb;
+  }
+  .link-item.video-link {
+    background: #fce4ec;
+    color: #c62828;
+  }
+  .link-item.video-link:hover {
+    background: #f8bbd0;
+  }
+  .link-item .link-icon {
+    font-size: 1.1em;
+    flex-shrink: 0;
+  }
+  .link-item .link-label {
+    flex-shrink: 0;
+    font-size: 0.75em;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .link-item .link-title {
+    flex: 1;
+  }
+  .link-item .link-arrow {
+    flex-shrink: 0;
+    font-size: 0.9em;
+    opacity: 0.4;
+  }
+  .link-item:hover .link-arrow {
+    opacity: 1;
   }
 
   .card-arrow {
@@ -143,7 +189,6 @@
     color: #c4c4ce;
     font-size: 1.2em;
   }
-  .card-inner:hover .card-arrow { color: #0066cc; }
 
   footer {
     text-align: center;
@@ -157,8 +202,8 @@
     body { padding: 12px; }
     header h1 { font-size: 1.5em; }
     .card-num { width: 38px; font-size: 0.9em; }
-    .card-body { padding: 12px 14px; }
-    .card-arrow { width: 24px; }
+    .card-title-area { padding: 12px 14px 8px; }
+    .card-links { padding: 0 14px 10px; }
     .stats { gap: 10px; }
     .stat-item { padding: 10px 14px; min-width: 80px; }
   }
@@ -170,12 +215,12 @@
 <header>
   <h1>🧠 <span>AI для FMCG</span></h1>
   <p class="sub">Материалы к воркшопу Алексея Парфуна — конспекты, видео, подборки для самостоятельного изучения</p>
-  <p class="meta">Материалы: <strong>3</strong> · занятий: <strong>1</strong></p>
+  <p class="meta">Материалы: <strong>2</strong> · занятий: <strong>1</strong></p>
 </header>
 
 <div class="stats">
   <div class="stat-item">
-    <div class="num">3</div>
+    <div class="num">2</div>
     <div class="label">Материала</div>
   </div>
   <div class="stat-item">
@@ -194,15 +239,15 @@
 
 <!-- 1 -->
 <div class="card">
-  <a class="card-inner" href="https://mrvolkomorov.github.io/ai-fmcg-materials/" target="_blank" rel="noopener">
+  <a class="card-header" href="https://mrvolkomorov.github.io/ai-fmcg-materials/" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
     <div class="card-num">1</div>
-    <div class="card-body">
+    <div class="card-title-area">
       <div class="tag-row">
         <span class="tag ru">RU</span>
         <span class="tag theme">Промпты</span>
         <span class="tag theme">Фреймворки</span>
       </div>
-      <h3><a href="https://mrvolkomorov.github.io/ai-fmcg-materials/" target="_blank" rel="noopener">10 материалов для самостоятельного изучения</a></h3>
+      <h3>10 материалов для самостоятельного изучения</h3>
       <p>Обзор моделей, фреймворки промптов, продвинутый промптинг</p>
     </div>
     <div class="card-arrow">→</div>
@@ -211,36 +256,32 @@
 
 <!-- 2 -->
 <div class="card">
-  <a class="card-inner" href="https://docs.google.com/document/d/1Mzff_OG92s7NHs9M8WtqpW-MN-g21n0nGnjM_MS-ieA/edit?usp=drivesdk" target="_blank" rel="noopener">
-    <div class="card-num" style="background: #1565c0;">2</div>
-    <div class="card-body">
+  <div class="card-header">
+    <div class="card-num" style="background: #7b1fa2;">2</div>
+    <div class="card-title-area">
       <div class="tag-row">
         <span class="tag ru">RU</span>
-        <span class="tag notes">Конспект</span>
-        <span class="tag theme">Занятие 1</span>
+        <span class="tag lesson">Занятие 1</span>
       </div>
-      <h3><a href="https://docs.google.com/document/d/1Mzff_OG92s7NHs9M8WtqpW-MN-g21n0nGnjM_MS-ieA/edit?usp=drivesdk" target="_blank" rel="noopener">Конспект занятия 1</a></h3>
-      <p>Подробный конспект воркшопа Алексея Парфуна — ключевые темы, инсайты, примеры</p>
+      <h3>Конспект и видео</h3>
+      <p>Полные материалы первого воркшопа Алексея Парфуна</p>
     </div>
-    <div class="card-arrow">→</div>
-  </a>
-</div>
-
-<!-- 3 -->
-<div class="card">
-  <a class="card-inner" href="https://disk.yandex.ru/i/gtzmutUrISDS5Q" target="_blank" rel="noopener">
-    <div class="card-num" style="background: #c62828;">3</div>
-    <div class="card-body">
-      <div class="tag-row">
-        <span class="tag ru">RU</span>
-        <span class="tag video">Видео</span>
-        <span class="tag theme">Занятие 1</span>
-      </div>
-      <h3><a href="https://disk.yandex.ru/i/gtzmutUrISDS5Q" target="_blank" rel="noopener">Видеозапись занятия 1</a></h3>
-      <p>Полная видеозапись воркшопа — 87 минут, теория + практика + Q&amp;A</p>
-    </div>
-    <div class="card-arrow">→</div>
-  </a>
+    <div class="card-arrow" style="visibility: hidden;">→</div>
+  </div>
+  <div class="card-links">
+    <a class="link-item notes-link" href="https://docs.google.com/document/d/1Mzff_OG92s7NHs9M8WtqpW-MN-g21n0nGnjM_MS-ieA/edit?usp=drivesdk" target="_blank" rel="noopener">
+      <span class="link-icon">📄</span>
+      <span class="link-label">Конспект</span>
+      <span class="link-title">Подробный конспект занятия — ключевые темы, инсайты, примеры</span>
+      <span class="link-arrow">→</span>
+    </a>
+    <a class="link-item video-link" href="https://disk.yandex.ru/i/gtzmutUrISDS5Q" target="_blank" rel="noopener">
+      <span class="link-icon">🎬</span>
+      <span class="link-label">Видео</span>
+      <span class="link-title">Полная видеозапись — 87 мин, теория + практика + Q&amp;A</span>
+      <span class="link-arrow">→</span>
+    </a>
+  </div>
 </div>
 
 <footer>
