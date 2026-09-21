@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дополнительные материалы — Занятие 2. Транскрибация и голосовой ввод</title>
+<style>
+*, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.5; padding: 20px; }
+.container { max-width: 960px; margin: 0 auto; }
+header { text-align: center; padding: 40px 0 16px; }
+header h1 { font-size: 1.6em; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 6px; }
+header h1 span { color: #0066cc; }
+header .sub { color: #6e6e73; font-size: 1em; max-width: 600px; margin: 0 auto; }
+header .meta { color: #9a9a9f; font-size: 0.85em; margin-top: 8px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.07); font-size: 0.88em; }
+th { background: #f0f0f5; font-weight: 600; text-align: left; padding: 12px 14px; color: #6e6e73; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid #e8e8ed; }
+td { padding: 11px 14px; border-bottom: 1px solid #e8e8ed; vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+td a { color: #0066cc; text-decoration: none; font-weight: 500; }
+td a:hover { text-decoration: underline; }
+.tag { display: inline-block; font-size: 0.7em; font-weight: 500; padding: 2px 7px; border-radius: 4px; margin-right: 3px; }
+.tag.ru { background: #e8f5e9; color: #2e7d32; }
+.tag.en { background: #e3f2fd; color: #1565c0; }
+.tag.manual { background: #fff3e0; color: #e65100; }
+.tag.overview { background: #f3e5f5; color: #7b1fa2; }
+.tag.catalog { background: #e0f2f1; color: #00695c; }
+.tag.quickstart { background: #fce4ec; color: #c62828; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; margin: 10px 0 0; color: #6e6e73; text-decoration: none; font-size: 0.88em; }
+.back-link:hover { color: #0066cc; }
+footer { text-align: center; padding: 28px 0 16px; color: #9a9a9f; font-size: 0.82em; }
+footer a { color: #0066cc; text-decoration: none; }
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  table { font-size: 0.8em; border-radius: 10px; }
+  th, td { padding: 8px 10px; }
+  th:nth-child(2), td:nth-child(2) { display: none; }
+  header h1 { font-size: 1.2em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <a href="https://mrvolkomorov.github.io/ai-fmcg-portal/" class="back-link">← Назад к порталу</a>
+  <h1>📚 <span>Дополнительные материалы</span></h1>
+  <p class="sub">Занятие 2. Транскрибация и голосовой ввод — 10 источников для самостоятельного изучения</p>
+  <p class="meta">7 на русском · 3 на английском · обновлено сентябрь 2026</p>
+</header>
+
+<table>
+<thead>
+<tr>
+  <th style="width:4%">№</th>
+  <th style="width:26%">Название</th>
+  <th style="width:10%">Тип</th>
+  <th style="width:37%">О чём</th>
+  <th style="width:23%">Ссылка</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td>1</td>
+  <td><strong>Голосовой ввод на русско-английском в 2026</strong></td>
+  <td><span class="tag ru">RU</span><span class="tag overview">Обзор</span></td>
+  <td>Хабр — тестирование 10+ инструментов диктовки: WisprFlow, OpenWhispr, Handy, SuperWhisper, GigaAM v3. Бенчмарки 23 ASR-моделей. Промпт для пунктуации в Whisper</td>
+  <td><a href="https://habr.com/ru/articles/1024634" target="_blank">habr.com</a></td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td><strong>Лучший AI-сервис для заметок и расшифровки аудио в 2026</strong></td>
+  <td><span class="tag ru">RU</span><span class="tag overview">Обзор</span></td>
+  <td>Сравнение 7 решений: AI Заметки, Otter, Plaud, Notion AI, Я.Заметки, Speechpad, ChatGPT. Критерии: WER, языки, приватность, цены</td>
+  <td><a href="https://vc.ru/ai/2904394-luchshie-ai-servisy-dlya-zametok-i-rasshifrovki-audio-v-tekst" target="_blank">vc.ru</a></td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td><strong>14 сервисов для расшифровки аудио и видео в текст</strong></td>
+  <td><span class="tag ru">RU</span><span class="tag catalog">Каталог</span></td>
+  <td>Pressfeed — GuruScribe, Speechpad, Teamlogs, Any2Text и другие. Тарифы, тесты, отзывы пользователей</td>
+  <td><a href="https://news.pressfeed.ru/14-servisov-i-prilozhenij-dlya-rasshifrovki-audio-i-video-v-tekst" target="_blank">pressfeed.ru</a></td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td><strong>Как запустить Whisper — пошаговая инструкция</strong></td>
+  <td><span class="tag ru">RU</span><span class="tag manual">Мануал</span></td>
+  <td>Наша страница-справочник. Только GUI-приложения без командной строки. Что делать с моделью .bin с Hugging Face. 6 программ с инструкциями</td>
+  <td><a href="https://mrvolkomorov.github.io/whisper-local-guide/" target="_blank">whisper-local-guide</a></td>
+</tr>
+
+<tr>
+  <td>5</td>
+  <td><strong>Best Whisper GUI For Windows 2026: Top 5 Tools Compared</strong></td>
+  <td><span class="tag en">EN</span><span class="tag manual">Мануал</span></td>
+  <td>Сравнение 5 графических приложений: WhisperDesktop, Buzz, Easy Whisper UI, WhisperUI, StarWhisper. Установка, настройка</td>
+  <td><a href="https://mjunaidkhalid.com/2026/07/07/best-whisper-gui-for-windows-2026-1" target="_blank">mjunaidkhalid.com</a></td>
+</tr>
+
+<tr>
+  <td>6</td>
+  <td><strong>Транскрибация Whisper: полный гид (на русском)</strong></td>
+  <td><span class="tag ru">RU</span><span class="tag manual">Мануал</span></td>
+  <td>5 способов запуска: от API до нативных приложений. Parakeet V3 vs Whisper для русского. Таблица выбора по цене/приватности</td>
+  <td><a href="https://whispernotes.app/ru/blog/whisper-transcription" target="_blank">whispernotes.app</a></td>
+</tr>
+
+<tr>
+  <td>7</td>
+  <td><strong>Whisper Desktop: Free STT in Under 5 Minutes</strong></td>
+  <td><span class="tag en">EN</span><span class="tag quickstart">Быстрый старт</span></td>
+  <td>ZIP → .exe → модель → файл → текст. Без Python, без команд. Идеально для Windows</td>
+  <td><a href="https://nolongerset.com/whisper-desktop" target="_blank">nolongerset.com</a></td>
+</tr>
+
+<tr>
+  <td>8</td>
+  <td><strong>Deepgram: Russian Speech to Text API</strong></td>
+  <td><span class="tag en">EN</span><span class="tag overview">Обзор</span></td>
+  <td>Nova-3: WER 5.26%, 40x быстрее конкурентов, on-premise, $200 бесплатных кредитов</td>
+  <td><a href="https://deepgram.com/product/speech-to-text/russian" target="_blank">deepgram.com</a></td>
+</tr>
+
+<tr>
+  <td>9</td>
+  <td><strong>Лучшие программы для диктовки в Windows 2026 (на русском)</strong></td>
+  <td><span class="tag ru">RU</span><span class="tag overview">Обзор</span></td>
+  <td>OpenWhispr — open-source диктовка (push-to-talk, whisper.cpp, 99 языков). Сравнение с Win+H, Dragon Professional</td>
+  <td><a href="https://openwhispr.com/ru/blog/best-dictation-tools-windows-2026" target="_blank">openwhispr.com</a></td>
+</tr>
+
+<tr>
+  <td>10</td>
+  <td><strong>MacWhisper Review 2026: Pricing, Free vs Pro, Accuracy</strong></td>
+  <td><span class="tag en">EN</span><span class="tag overview">Обзор</span></td>
+  <td>Лучшее приложение для Mac. От бесплатно до €64 one-time. Drag-and-drop, batch, watch folders</td>
+  <td><a href="https://daveswift.com/macwhisper" target="_blank">daveswift.com</a></td>
+</tr>
+
+</tbody>
+</table>
+
+<footer>
+  <p>Материалы к воркшопу Алексея Парфуна «AI для FMCG 2026» · <a href="https://mrvolkomorov.github.io/ai-fmcg-portal/">← На главную</a></p>
+</footer>
+
+</div>
+</body>
+</html>
