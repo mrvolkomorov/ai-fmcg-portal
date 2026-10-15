@@ -1,286 +1,340 @@
-<!DOCTYPE html><html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style rel="stylesheet" type="text/css">@charset "utf-8";
-*, ::before, ::after { box-sizing: border-box; margin: 0px; padding: 0px; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif; background: rgb(245, 245, 247); color: rgb(29, 29, 31); line-height: 1.5; padding: 20px; }
-.container { max-width: 960px; margin: 0px auto; }
-header { text-align: center; padding: 48px 0px 12px; }
-header h1 { font-size: 2em; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 6px; }
-header h1 span { color: rgb(0, 102, 204); }
-header .sub { color: rgb(110, 110, 115); font-size: 1.05em; max-width: 580px; margin: 0px auto; }
-header .meta { color: rgb(154, 154, 159); font-size: 0.85em; margin-top: 10px; }
-.stats { display: flex; gap: 24px; justify-content: center; margin-bottom: 28px; flex-wrap: wrap; }
-.stat-item { background: rgb(255, 255, 255); border-radius: 12px; padding: 14px 22px; box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px; text-align: center; min-width: 100px; }
-.stat-item .num { font-size: 1.5em; font-weight: 700; color: rgb(0, 102, 204); }
-.stat-item .label { font-size: 0.8em; color: rgb(110, 110, 115); margin-top: 2px; }
-.card { background: rgb(255, 255, 255); border-radius: 14px; margin-bottom: 12px; box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 3px; overflow: hidden; }
-.card-header { display: flex; align-items: stretch; }
-.card-num { width: 52px; display: flex; align-items: center; justify-content: center; font-size: 1.1em; font-weight: 700; color: rgb(255, 255, 255); flex-shrink: 0; background: rgb(0, 102, 204); }
-.card-title-area { flex: 1 1 0%; padding: 16px 20px 12px; display: flex; flex-direction: column; justify-content: center; }
-.card-title-area .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 4px; }
-.card-title-area .tag { display: inline-block; font-size: 0.68em; font-weight: 500; padding: 1px 8px; border-radius: 4px; background: rgb(232, 232, 237); color: rgb(110, 110, 115); }
-.card-title-area .tag.en { background: rgb(232, 240, 254); color: rgb(0, 102, 204); }
-.card-title-area .tag.ru { background: rgb(232, 245, 233); color: rgb(46, 125, 50); }
-.card-title-area .tag.theme { background: rgb(255, 243, 224); color: rgb(230, 81, 0); }
-.card-title-area .tag.lesson { background: rgb(243, 229, 245); color: rgb(123, 31, 162); }
-.card-title-area .tag.homework { background: rgb(232, 240, 254); color: rgb(0, 102, 204); }
-.card-title-area h3 { font-size: 1em; font-weight: 600; margin: 2px 0px 3px; line-height: 1.4; color: rgb(29, 29, 31); }
-.card-title-area p { font-size: 0.88em; color: rgb(110, 110, 115); }
-.card-links { padding: 0px 20px 14px; display: flex; flex-direction: column; gap: 6px; }
-.card-links .link-item { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; text-decoration: none; font-size: 0.85em; font-weight: 500; transition: background 0.15s; }
-.link-item.notes-link { background: rgb(227, 242, 253); color: rgb(21, 101, 192); }
-.link-item.notes-link:hover { background: rgb(187, 222, 251); }
-.link-item.video-link { background: rgb(252, 228, 236); color: rgb(198, 40, 40); }
-.link-item.video-link:hover { background: rgb(248, 187, 208); }
-.link-item.reading-link { background: rgb(232, 245, 233); color: rgb(46, 125, 50); }
-.link-item.reading-link:hover { background: rgb(200, 230, 201); }
-.link-item.homework-link { background: rgb(232, 240, 254); color: rgb(21, 101, 192); }
-.link-item.homework-link:hover { background: rgb(187, 222, 251); }
-.link-item .link-icon { font-size: 1.1em; flex-shrink: 0; }
-.link-item .link-label { flex-shrink: 0; font-size: 0.75em; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.05em; }
-.link-item .link-title { flex: 1 1 0%; }
-.link-item .link-arrow { flex-shrink: 0; font-size: 0.9em; opacity: 0.4; }
-.link-item:hover .link-arrow { opacity: 1; }
-.card-arrow { width: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: rgb(196, 196, 206); font-size: 1.2em; }
-footer { text-align: center; padding: 32px 0px 20px; color: rgb(154, 154, 159); font-size: 0.82em; }
-footer a { color: rgb(0, 102, 204); text-decoration: none; }
-@media (max-width: 600px) {
-  body { padding: 12px; }
-  header h1 { font-size: 1.5em; }
-  .card-num { width: 38px; font-size: 0.9em; }
-  .card-title-area { padding: 12px 14px 8px; }
-  .card-links { padding: 0px 14px 10px; }
-  .stats { gap: 10px; }
-  .stat-item { padding: 10px 14px; min-width: 80px; }
-}
-</style>
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Материалы воркшопа — AI для FMCG</title>
+<title>AI для FMCG 2026 — Программа воркшопа</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #1a2e44;
+    --accent-light: #2d4a6b;
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #1d1d1f;
+    --text-muted: #6b7280;
+    --text-faint: #9ca3af;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
 
+  /* ---------- HERO ---------- */
+  .hero {
+    background: linear-gradient(135deg, #1a2e44 0%, #2d4a6b 100%);
+    color: #fff;
+    padding: 80px 24px 64px;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; gap: 40px;
+    grid-template-columns: 1.4fr 1fr;
+    align-items: center;
+  }
+  .hero .eyebrow {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: #9bb3cf; margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: 44px; font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 18px;
+  }
+  .hero .subtitle {
+    font-size: 17px; color: #cbd9e8; line-height: 1.55;
+    max-width: 540px;
+  }
+  .stats {
+    display: flex; gap: 28px; flex-wrap: wrap;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px; padding: 24px 28px;
+    backdrop-filter: blur(8px);
+  }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat .num {
+    font-size: 32px; font-weight: 700; line-height: 1;
+    color: #fff; letter-spacing: -0.02em;
+  }
+  .stat .label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: #9bb3cf;
+  }
+
+  /* ---------- MAIN ---------- */
+  main { padding: 56px 24px 80px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-muted); margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .lessons {
+    list-style: none;
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lesson {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    display: flex; gap: 24px; align-items: flex-start;
+  }
+  .lesson:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,46,68,0.08);
+    border-color: #cbd9e8;
+  }
+  .lesson-num {
+    flex-shrink: 0;
+    font-size: 36px; font-weight: 700; line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    min-width: 56px;
+    font-variant-numeric: tabular-nums;
+  }
+  .lesson-body { flex: 1; min-width: 0; }
+  .lesson-meta {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding: 4px 10px; border-radius: 999px;
+    background: #eef2f7; color: var(--accent);
+  }
+  .tag.lang { background: #f0f4f0; color: #2d6a3e; }
+  .tag.date { background: #f5f3ee; color: #6b5d2c; }
+  .lesson-title {
+    font-size: 19px; font-weight: 600; line-height: 1.35;
+    color: var(--text); margin-bottom: 8px;
+  }
+  .lesson-desc {
+    font-size: 14px; color: var(--text-muted);
+    margin-bottom: 18px; line-height: 1.5;
+  }
+  .lesson-links {
+    list-style: none;
+    border-top: 1px solid var(--border);
+    margin: 0 -4px; padding-top: 6px;
+  }
+  .lesson-links li + li { border-top: 1px solid #f1f3f5; }
+  .lesson-links a {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 4px;
+    text-decoration: none; color: var(--text);
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .lesson-links a:hover {
+    background: #f5f7fa; color: var(--accent);
+  }
+  .link-icon {
+    flex-shrink: 0; width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    background: #f0f3f7; border-radius: 6px;
+    font-size: 14px;
+  }
+  .link-text { flex: 1; min-width: 0; }
+  .link-label {
+    display: block; font-weight: 600; color: var(--accent);
+    font-size: 13px; margin-bottom: 2px;
+  }
+  .link-title {
+    display: block; color: var(--text-muted);
+    font-size: 13px; line-height: 1.4;
+    overflow: hidden; text-overflow: ellipsis;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .link-arrow {
+    flex-shrink: 0; color: var(--text-faint);
+    font-size: 16px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--accent);
+    color: #cbd9e8;
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 14px;
+  }
+  footer p { margin: 4px 0; }
+  footer a { color: #fff; text-decoration: none; border-bottom: 1px dotted #9bb3cf; }
+  footer a:hover { color: #fff; border-bottom-color: #fff; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 820px) {
+    .hero { padding: 56px 20px 48px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+    .hero h1 { font-size: 32px; }
+    .hero .subtitle { font-size: 15px; }
+    .stats { padding: 20px; }
+    .stat .num { font-size: 26px; }
+    main { padding: 40px 20px 60px; }
+    .lessons { grid-template-columns: 1fr; gap: 16px; }
+    .lesson { padding: 22px; gap: 18px; }
+    .lesson-num { font-size: 28px; min-width: 44px; }
+    .lesson-title { font-size: 17px; }
+  }
+</style>
 </head>
 <body>
-<div class="container">
-
-<header>
-  <h1>Воркшоп <span>AI для FMCG</span></h1>
-  <p class="sub">Материалы воркшопа Алексея Парфуна — конспекты, видеозаписи, раздаточные материалы, задания и шпаргалки по занятиям на русском и английском языках</p>
-  <p class="meta">Обновлено: <strong>8 октября 2026</strong></p>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow">Программа воркшопа</p>
+      <h1>AI для FMCG 2026</h1>
+      <p class="subtitle">Лектор — Алексей Парфун. Пять занятий о том, как использовать ИИ в работе коммерческого директора: от исследования рынка до проверки цифр и обезличивания.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">5</span><span class="label">Занятий</span></div>
+      <div class="stat"><span class="num">16</span><span class="label">на русском</span></div>
+      <div class="stat"><span class="num">6</span><span class="label">на английском</span></div>
+    </div>
+  </div>
 </header>
 
-<div class="stats">
-  <div class="stat-item">
-    <div class="num">5</div>
-    <div class="label">Занятия</div>
-  </div>
-  <div class="stat-item">
-    <div class="num">16</div>
-    <div class="label">на русском</div>
-  </div>
-  <div class="stat-item">
-    <div class="num">6</div>
-    <div class="label">на английском</div>
-  </div>
-</div>
+<main>
+  <div class="container">
+    <p class="section-title">Программа занятий</p>
+    <ol class="lessons">
 
-<!-- 1 -->
-<div class="card">
-  <div class="card-header">
-    <div class="card-num" style="background: #7b1fa2;">1</div>
-    <div class="card-title-area">
-      <div class="tag-row">
-        <span class="tag ru">RU</span>
-        <span class="tag lesson">Занятие 1</span>
-        <span class="tag theme">Глубокое исследование</span>
-        <span class="tag theme">Оркестратор</span>
-      </div>
-      <h3>Все материалы занятия 1</h3>
-      <p>Конспекты, видео, 10 сервисов для самостоятельного изучения — от исследования рынка до голоса потребителя и подготовки к борду</p>
-    </div>
-    <div class="card-arrow" style="visibility: hidden;">→</div>
-  </div>
-  <div class="card-links">
-    <a class="link-item notes-link" href="https://docs.google.com/document/d/1Mzff_OG92s7NHs9M8WtqpW-MN-g21n0nGnjM_MS-ieA/edit?usp=drivesdk" target="_blank" rel="noopener">
-      <span class="link-icon">📄</span>
-      <span class="link-label">Конспект</span>
-      <span class="link-title">Подробный конспект (Мск) — GPT → Manus → Perplexity → Claude → NotebookLM</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item video-link" href="https://disk.yandex.ru/i/gtzmutErISDS5Q" target="_blank" rel="noopener">
-      <span class="link-icon">🎬</span>
-      <span class="link-label">Видео</span>
-      <span class="link-title">Полная видеозапись занятия — 87 мин, основной поток + Q&amp;A</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item reading-link" href="https://mrvolkomorov.github.io/ai-fmcg-materials/" target="_blank" rel="noopener">
-      <span class="link-icon">📊</span>
-      <span class="link-label">Почитать</span>
-      <span class="link-title">10 сервисов для исследований — оркестраторы, агенты, RAG, инструменты FMCG-маркетинга</span>
-      <span class="link-arrow">→</span>
-    </a>
-  </div>
-</div>
+      <li class="lesson">
+        <div class="lesson-num">01</div>
+        <div class="lesson-body">
+          <div class="lesson-meta">
+            <span class="tag">Исследование</span>
+            <span class="tag">Оркестратор</span>
+          </div>
+          <h2 class="lesson-title">Глубокое исследование и оркестратор</h2>
+          <p class="lesson-desc">GPT → Manus → Perplexity → Claude → NotebookLM. Как собрать связку моделей, чтобы каждый отвечал за свой участок работы.</p>
+          <ul class="lesson-links">
+            <li><a href="https://docs.google.com/document/d/1Mzff_OG92s7NHs9M8WtqpW-MN-g21n0nGnjM_MS-ieA/edit?usp=drivesdk" target="_blank" rel="noopener">
+              <span class="link-icon">📄</span><span class="link-text"><span class="link-label">Конспект</span><span class="link-title">Подробный конспект — GPT → Manus → Perplexity → Claude → NotebookLM</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://disk.yandex.ru/i/gtzmutErISDS5Q" target="_blank" rel="noopener">
+              <span class="link-icon">🎬</span><span class="link-text"><span class="link-label">Видео</span><span class="link-title">Полная видеозапись занятия — 87 мин, основной поток + Q&amp;A</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://mrvolkomorov.github.io/ai-fmcg-materials/" target="_blank" rel="noopener">
+              <span class="link-icon">📊</span><span class="link-text"><span class="link-label">Почитать</span><span class="link-title">10 сервисов для исследований — оркестраторы, агенты, RAG, инструменты FMCG-маркетинга</span></span><span class="link-arrow">→</span>
+            </a></li>
+          </ul>
+        </div>
+      </li>
 
-<!-- 2 -->
-<div class="card">
-  <div class="card-header">
-    <div class="card-num" style="background: #e65100;">2</div>
-    <div class="card-title-area">
-      <div class="tag-row">
-        <span class="tag ru">RU</span>
-        <span class="tag lesson">Занятие 2</span>
-        <span class="tag homework">ИИ-контроль</span>
-      </div>
-      <h3>Все материалы занятия 2</h3>
-      <p>Конспекты, видео, раздатки для самостоятельного изучения и практические задания по контролю качества звонков и переписки с помощью ИИ</p>
-    </div>
-    <div class="card-arrow" style="visibility: hidden;">→</div>
-  </div>
-  <div class="card-links">
-    <a class="link-item notes-link" href="https://docs.google.com/document/d/1yUkIkBhIPi-3KrXf3cTo7UKGAdNOppUUjJhxo195aLJE/edit?usp=drivesdk" target="_blank" rel="noopener">
-      <span class="link-icon">📄</span>
-      <span class="link-label">Конспект</span>
-      <span class="link-title">Подробный конспект второго занятия — контроль качества звонков и переписки</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item video-link" href="https://disk.yandex.ru/i/PO1wID6XHTLhjA" target="_blank" rel="noopener">
-      <span class="link-icon">🎬</span>
-      <span class="link-label">Видео</span>
-      <span class="link-title">Полная видеозапись второго занятия</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item homework-link" href="https://mrvolkomorov.github.io/ai-fmcg-portal/homework-2.html" target="_blank" rel="noopener">
-      <span class="link-icon">📝</span>
-      <span class="link-label">Домашнее задание</span>
-      <span class="link-title">ИИ-контроль качества звонков и переписки — пошаговая инструкция, чек-лист и критерии зачёта</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item reading-link" href="https://mrvolkomorov.github.io/ai-fmcg-portal/materials-2.html" target="_blank" rel="noopener">
-      <span class="link-icon">📊</span>
-      <span class="link-label">Почитать</span>
-      <span class="link-title">10 материалов для самостоятельного изучения — безопасность ИИ, регуляторика, чек-листы по контролю звонков</span>
-      <span class="link-arrow">→</span>
-    </a>
-  </div>
-</div>
+      <li class="lesson">
+        <div class="lesson-num">02</div>
+        <div class="lesson-body">
+          <div class="lesson-meta">
+            <span class="tag">ИИ-контроль</span>
+          </div>
+          <h2 class="lesson-title">Контроль качества звонков и переписки</h2>
+          <p class="lesson-desc">Как с помощью ИИ проверять качество работы коммерческого отдела: разбор звонков, оценка писем, чек-листы.</p>
+          <ul class="lesson-links">
+            <li><a href="https://docs.google.com/document/d/1yUkIkBhIPi-3KrXf3cTo7UKGAdNOppUUjJhxo195aLJE/edit?usp=drivesdk" target="_blank" rel="noopener">
+              <span class="link-icon">📄</span><span class="link-text"><span class="link-label">Конспект</span><span class="link-title">Подробный конспект второго занятия — контроль качества звонков и переписки</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://disk.yandex.ru/i/PO1wID6XHTLhjA" target="_blank" rel="noopener">
+              <span class="link-icon">🎬</span><span class="link-text"><span class="link-label">Видео</span><span class="link-title">Полная видеозапись второго занятия</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://mrvolkomorov.github.io/ai-fmcg-portal/homework-2.html" target="_blank" rel="noopener">
+              <span class="link-icon">📝</span><span class="link-text"><span class="link-label">Домашнее задание</span><span class="link-title">ИИ-контроль качества звонков и переписки — пошаговая инструкция, чек-лист и критерии зачёта</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://mrvolkomorov.github.io/ai-fmcg-portal/materials-2.html" target="_blank" rel="noopener">
+              <span class="link-icon">📊</span><span class="link-text"><span class="link-label">Почитать</span><span class="link-title">10 материалов для самостоятельного изучения — безопасность ИИ, регуляторика, чек-листы по контролю звонков</span></span><span class="link-arrow">→</span>
+            </a></li>
+          </ul>
+        </div>
+      </li>
 
-<!-- 3 -->
-<div class="card">
-  <div class="card-header">
-    <div class="card-num" style="background: #00838f;">3</div>
-    <div class="card-title-area">
-      <div class="tag-row">
-        <span class="tag ru">RU</span>
-        <span class="tag lesson">Занятие 3</span>
-        <span class="tag theme">Презентации</span>
-      </div>
-      <h3>Все материалы занятия 3</h3>
-      <p>Конспект, видеозапись, 10 сервисов с саммари для самостоятельного изучения и домашнее задание</p>
-    </div>
-    <div class="card-arrow" style="visibility: hidden;">→</div>
-  </div>
-  <div class="card-links">
-    <a class="link-item notes-link" href="https://docs.google.com/document/d/193FcYtvTZ-JWXKiLRB6AgB4tQD11NeUNcsKj8-RqMs4/edit?usp=drivesdk" target="_blank" rel="noopener">
-      <span class="link-icon">📄</span>
-      <span class="link-label">Конспект</span>
-      <span class="link-title">Подробный конспект — ключевые темы, инсайты, примеры</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item video-link" href="https://disk.yandex.ru/i/04GtsDpObdq-cw" target="_blank" rel="noopener">
-      <span class="link-icon">🎬</span>
-      <span class="link-label">Видео</span>
-      <span class="link-title">Полная видеозапись третьего занятия</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item reading-link" href="https://mrvolkomorov.github.io/ai-fmcg-slides-materials/" target="_blank" rel="noopener">
-      <span class="link-icon">📊</span>
-      <span class="link-label">Почитать</span>
-      <span class="link-title">10 сервисов для презентаций — генераторы, агенты, редакторы и российские аналоги + шпаргалка выбора</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item homework-link" href="https://mrvolkomorov.github.io/ai-fmcg-slides-homework/" target="_blank" rel="noopener">
-      <span class="link-icon">📝</span>
-      <span class="link-label">Домашнее задание</span>
-      <span class="link-title">Презентация за 30 минут — пошаговая инструкция, чек-лист и критерии зачёта</span>
-      <span class="link-arrow">→</span>
-    </a>
-  </div>
-</div>
+      <li class="lesson">
+        <div class="lesson-num">03</div>
+        <div class="lesson-body">
+          <div class="lesson-meta">
+            <span class="tag">Презентации</span>
+          </div>
+          <h2 class="lesson-title">ИИ для презентаций</h2>
+          <p class="lesson-desc">Генераторы, агенты, редакторы и российские аналоги. Как собрать презентацию за 30 минут и не мучиться со шрифтами.</p>
+          <ul class="lesson-links">
+            <li><a href="https://docs.google.com/document/d/193FcYtvTZ-JWXKiLRB6AgB4tQD11NeUNcsKj8-RqMs4/edit?usp=drivesdk" target="_blank" rel="noopener">
+              <span class="link-icon">📄</span><span class="link-text"><span class="link-label">Конспект</span><span class="link-title">Подробный конспект — ключевые темы, инсайты, примеры</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://disk.yandex.ru/i/04GtsDpObdq-cw" target="_blank" rel="noopener">
+              <span class="link-icon">🎬</span><span class="link-text"><span class="link-label">Видео</span><span class="link-title">Полная видеозапись третьего занятия</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://mrvolkomorov.github.io/ai-fmcg-slides-materials/" target="_blank" rel="noopener">
+              <span class="link-icon">📊</span><span class="link-text"><span class="link-label">Почитать</span><span class="link-title">10 сервисов для презентаций — генераторы, агенты, редакторы и российские аналоги + шпаргалка выбора</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://mrvolkomorov.github.io/ai-fmcg-slides-homework/" target="_blank" rel="noopener">
+              <span class="link-icon">📝</span><span class="link-text"><span class="link-label">Домашнее задание</span><span class="link-title">Презентация за 30 минут — пошаговая инструкция, чек-лист и критерии зачёта</span></span><span class="link-arrow">→</span>
+            </a></li>
+          </ul>
+        </div>
+      </li>
 
-<!-- 4 -->
-<div class="card">
-  <div class="card-header">
-    <div class="card-num" style="background: #455a64;">4</div>
-    <div class="card-title-area">
-      <div class="tag-row">
-        <span class="tag ru">RU</span>
-        <span class="tag lesson">Занятие 4</span>
-        <span class="tag theme">ИИ-контекст</span>
-      </div>
-      <h3>Все материалы занятия 4</h3>
-      <p>Нейросети, которые помнят ваш контекст — конспект лекции, запись встречи, материалы и домашнее задание</p>
-    </div>
-    <div class="card-arrow" style="visibility: hidden;">→</div>
+      <li class="lesson">
+        <div class="lesson-num">04</div>
+        <div class="lesson-body">
+          <div class="lesson-meta">
+            <span class="tag">ИИ-контекст</span>
+          </div>
+          <h2 class="lesson-title">Нейросети, которые помнят ваш контекст</h2>
+          <p class="lesson-desc">Проекты в ChatGPT, Claude, NotebookLM. Как заставить модель держать в голове ваши договоры, клиентов и стандарты.</p>
+          <ul class="lesson-links">
+            <li><a href="https://docs.google.com/document/d/1n5vh2MSLF2dZhkA72SO6Pqf6bLJt3zLk6efdC5FE8-Q/edit?usp=drivesdk" target="_blank" rel="noopener">
+              <span class="link-icon">📄</span><span class="link-text"><span class="link-label">Конспект</span><span class="link-title">Нейросети, которые помнят ваш контекст — 13 разделов</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://disk.yandex.ru/i/9fgtwjHs2RMWcg" target="_blank" rel="noopener">
+              <span class="link-icon">🎬</span><span class="link-text"><span class="link-label">Видео</span><span class="link-title">Запись лекции Алексея Парфуна 8 октября 2026, ~1:37</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://mrvolkomorov.github.io/ai-fmcg-context-materials/" target="_blank" rel="noopener">
+              <span class="link-icon">📊</span><span class="link-text"><span class="link-label">Почитать</span><span class="link-title">10 источников — ФЗ-152, обезличивание, NIST, RAG, паттерны промптов</span></span><span class="link-arrow">→</span>
+            </a></li>
+            <li><a href="https://mrvolkomorov.github.io/fmcg-context-homework/" target="_blank" rel="noopener">
+              <span class="link-icon">📝</span><span class="link-text"><span class="link-label">Домашнее задание</span><span class="link-title">Завести проект или блокнот на реальной задаче — пять шагов, чек-лист</span></span><span class="link-arrow">→</span>
+            </a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="lesson">
+        <div class="lesson-num">05</div>
+        <div class="lesson-body">
+          <div class="lesson-meta">
+            <span class="tag date">15 окт</span>
+            <span class="tag">Данные</span>
+            <span class="tag">Факты</span>
+            <span class="tag">Обезличивание</span>
+          </div>
+          <h2 class="lesson-title">Считаю и проверяю через ИИ</h2>
+          <p class="lesson-desc">Где брать цифры, как не нарваться на выдумку модели, и как обезличить выгрузку перед загрузкой в чат-бот.</p>
+          <ul class="lesson-links">
+            <li><a href="https://mrvolkomorov.github.io/ai-fmcg-week5-materials/" target="_blank" rel="noopener">
+              <span class="link-icon">📊</span><span class="link-text"><span class="link-label">Почитать</span><span class="link-title">10 источников — 3 закона, приватность ChatGPT и Claude, Timeweb, Рег.облако, Obsidian</span></span><span class="link-arrow">→</span>
+            </a></li>
+          </ul>
+        </div>
+      </li>
+
+    </ol>
   </div>
-  <div class="card-links">
-    <a class="link-item notes-link" href="https://docs.google.com/document/d/1n5vh2MSLF2dZhkA72SO6Pqf6bLJt3zLk6efdC5FE8-Q/edit?usp=drivesdk" target="_blank" rel="noopener">
-      <span class="link-icon">📄</span>
-      <span class="link-label">Конспект</span>
-      <span class="link-title">Нейросети, которые помнят ваш контекст — 13 разделов: роль контекста, проекты ChatGPT/Claude, NotebookLM, безопасность, настройки приватности</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item video-link" href="https://disk.yandex.ru/i/9fgtwjHs2RMWcg" target="_blank" rel="noopener">
-      <span class="link-icon">🎬</span>
-      <span class="link-label">Видео</span>
-      <span class="link-title">Запись лекции Алексея Парфуна 8 октября 2026, Яндекс.Телемост, ~1:37</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item reading-link" href="https://mrvolkomorov.github.io/ai-fmcg-context-materials/" target="_blank" rel="noopener">
-      <span class="link-icon">📊</span>
-      <span class="link-label">Почитать</span>
-      <span class="link-title">10 источников — ФЗ-152, обезличивание, NIST, OWASP, RAG, паттерны промптов и корпоративные кейсы</span>
-      <span class="link-arrow">→</span>
-    </a>
-    <a class="link-item homework-link" href="https://mrvolkomorov.github.io/fmcg-context-homework/" target="_blank" rel="noopener">
-      <span class="link-icon">📝</span>
-      <span class="link-label">Домашнее задание</span>
-      <span class="link-title">Завести проект или блокнот на реальной задаче — пошаговая инструкция, пять шагов, чек-лист перед отправкой</span>
-      <span class="link-arrow">→</span>
-    </a>
-  </div>
-</div>
+</main>
 
 <footer>
   <p>Материалы к воркшопу Алексея Парфуна «AI для FMCG 2026»</p>
-  <p style="margin-top:4px;"><a href="https://github.com/mrvolkomorov/ai-fmcg-portal">Репозиторий на GitHub</a></p>
+  <p><a href="https://github.com/mrvolkomorov/ai-fmcg-portal">Репозиторий на GitHub</a></p>
 </footer>
 
-
-
-<!-- 5 -->
-<div class="card">
-  <div class="card-header">
-    <div class="card-num" style="background: #c2185b;">5</div>
-    <div class="card-title-area">
-      <div class="tag-row">
-        <span class="tag ru">RU</span>
-        <span class="tag lesson">Занятие 5</span>
-        <span class="tag theme">Данные</span>
-        <span class="tag theme">Факты</span>
-        <span class="tag theme">Обезличивание</span>
-      </div>
-      <h3>Все материалы занятия 5</h3>
-      <p>Считаю и проверяю через ИИ — 10 источников: законы, настройки приватности, загрузка файлов, российские ИИ-сервисы и локальная база с ИИ</p>
-    </div>
-    <div class="card-arrow" style="visibility: hidden;">→</div>
-  </div>
-  <div class="card-links">
-    <a class="link-item reading-link" href="https://mrvolkomorov.github.io/ai-fmcg-week5-materials/" target="_blank" rel="noopener">
-      <span class="link-icon">📊</span>
-      <span class="link-label">Почитать</span>
-      <span class="link-title">10 источников — 3 закона, приватность ChatGPT и Claude, российские сервисы Timeweb и Рег.облако, локальная база Obsidian</span>
-      <span class="link-arrow">→</span>
-    </a>
-  </div>
-</div>
-
-</div>
-</body></html>
+</body>
+</html>
